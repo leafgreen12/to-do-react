@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App edit enable 1`] = `ShallowWrapper {}`;
+
+exports[`App should render todosLists correctly 1`] = `ShallowWrapper {}`;
+
+exports[`App toggle edit 1`] = `ShallowWrapper {}`;
+
+exports[`App toggle edit 2`] = `ShallowWrapper {}`;
+
+exports[`TodoItem should render todosLists correctly 1`] = `ShallowWrapper {}`;
+
+exports[`TodoItem toggle edit 1`] = `ShallowWrapper {}`;
