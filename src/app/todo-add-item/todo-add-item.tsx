@@ -4,15 +4,10 @@ import * as fromTodosAction from '../core/redux/todos';
 import {Field, reduxForm} from 'redux-form';
 import {validate} from '../core/redux/redux-form/sync-validation-form';
 
-class TodoAddItem extends Component<any, any> {
+export class TodoAddItem extends Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {value: ''};
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event: any) {
-        this.setState({value: event.target?.value ? event.target.value : ''});
     }
 
     addItem(data: any) {
@@ -40,11 +35,10 @@ class TodoAddItem extends Component<any, any> {
             <div>
                 <label>{x.name}</label>
                 <div>
-                    <input {...(x.input)} placeholder={x.placeholder} type={x.type}/>
-                    {x.meta.touched &&
-                    ((x.meta.error &&
-                        <p className="error-text error-text-char-max">{x.meta.error}</p>) ||
-                        (x.meta.warning && <span>{x.meta.warning}</span>))}
+                    <input className={"input-text"} {...(x.input)} placeholder={x.placeholder} type={x.type}/>
+                    <p className="error-text">
+                        {x.meta.touched && ((x.meta.error && x.meta.error) || (x.meta.warning && x.meta.warning))}
+                    </p>
                 </div>
             </div>
         )
@@ -67,7 +61,8 @@ class TodoAddItem extends Component<any, any> {
 
 // @ts-ignore
 TodoAddItem = reduxForm({
-    form: 'title', // a unique name for this form
-    validate // <--- validation function given to redux-form
-})(TodoAddItem as any);
+    form: 'title',
+    validate
+})(TodoAddItem as any)
+
 export default TodoAddItem;
